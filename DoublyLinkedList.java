@@ -27,7 +27,7 @@ public class DoublyLinkedList {
         if (head == null) { // If the list is empty
             head = newNode; // The new node is now the head
             tail = newNode; // The new node is also the tail
-        } else { // If the list is not empty
+        } else { 
             newNode.next = head; // New node's next points to current head
             head.prev = newNode; // Current head's previous points to new node
             head = newNode; // New node becomes the head
@@ -40,7 +40,7 @@ public class DoublyLinkedList {
         if (head == null) { // If the list is empty
             head = newNode; // The new node is now the head
             tail = newNode; // The new node is also the tail
-        } else { // If the list is not empty
+        } else { // If it is not empty
             tail.next = newNode; // Current tail's next points to new node
             newNode.prev = tail; // New node's previous points to current tail
             tail = newNode; // New node becomes the tail
@@ -85,7 +85,7 @@ public class DoublyLinkedList {
         list.addLast(47); // Add 47 at the end
         list.addFirst(91); // Add 91 at the beginning
 
-        list.printList(); // Print the list
+        list.printList(); // Print  list
 
         Node value83 = list.find(83); // Find the node with value 83
         if (value83 != null) {
