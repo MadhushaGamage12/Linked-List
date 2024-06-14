@@ -1,125 +1,119 @@
 package linkedList;
+import static java.lang.System.exit;
 
-	//Java program to Implement a stack
-	//using singly linked list
-	//import package
-	import static java.lang.System.exit;
-	public class StackUsingSinglyLinkedList {
+public class StackUsingSinglyLinkedList {
 
-		public static void main(String[] args) {
-			  StackUsingLinkedlist obj = new StackUsingLinkedlist();
-	      // insert Stack value
-	      obj.push(108);
-	      obj.push(83);
-	      obj.push(52);
-	      obj.push(6);
+    // Main method to test the stack implementation
+    public static void main(String[] args) {
+        StackUsingLinkedlist obj = new StackUsingLinkedlist(); // Create a new stack
+        
+        // Push elements onto the stack
+        obj.push(108); 
+        obj.push(83); 
+        obj.push(52); 
+        obj.push(6); 
 
-	      // print Stack elements
-	      obj.display();
+        // Display stack elements
+        obj.display(); 
 
-	      // print Top element of Stack
-	      System.out.printf("\nTop element is %d\n",obj.peek());
+        // Print top element of the stack
+        System.out.printf("\nTop element is %d\n", obj.peek()); 
 
-	      // Delete top element of Stack
-	      obj.pop();
-	      obj.pop();
+        // Pop elements from the stack
+        obj.pop(); 
+        obj.pop(); 
 
-	      // print Stack elements
-	      obj.display();
+        // Display stack elements after popping
+        obj.display(); 
 
-	      // print Top element of Stack
-	      System.out.printf("\nTop element is %d\n", obj.peek());
+        // Print top element of the stack
+        System.out.printf("\nTop element is %d\n", obj.peek()); 
+    }
+}
 
-		}
+// Class to implement stack using linked list
+class StackUsingLinkedlist {
+     
+    // A linked list node class
+    private class Node {
+        int data; // Integer data stored in the node
+        Node link; // Reference to the next node
+    }
+    
+    // Reference to the top of the stack
+    Node top;
 
-	}
+    // Constructor to initialize an empty stack
+    StackUsingLinkedlist() { 
+        this.top = null; 
+    }
+ 
+    // Method to add an element x to the stack
+    public void push(int x) {
+        // Create a new node
+        Node temp = new Node();
 
-	class StackUsingLinkedlist {
-		 
-	    // A linked list node
-	    private class Node {
-	 
-	        int data; // integer data
-	        Node link; // reference variable Node type
-	    }
-	    // create global top reference variable global
-	    Node top;
-	    // Constructor
-	    StackUsingLinkedlist() { this.top = null; }
-	 
-	    // Utility function to add an element x in the stack
-	    public void push(int x) // insert at the beginning
-	    {
-	        // create new node temp and allocate memory
-	        Node temp = new Node();
-	 
-	        // check if stack (heap) is full. Then inserting an
-	        //  element would lead to stack overflow
-	        if (temp == null) {
-	            System.out.print("\nHeap Overflow");
-	            return;
-	        }
-	 
-	        // initialize data into temp data field
-	        temp.data = x;
-	 
-	        // put top reference into temp link
-	        temp.link = top;
-	 
-	        // update top reference
-	        top = temp;
-	    }
-	 
-	    // Utility function to check if the stack is empty or
-	    // not
-	    public boolean isEmpty() { return top == null; }
-	 
-	    // Utility function to return top element in a stack
-	    public int peek()
-	    {
-	        // check for empty stack
-	        if (!isEmpty()) {
-	            return top.data;
-	        }
-	        else {
-	            System.out.println("Stack is empty");
-	            return -1;
-	        }
-	    }
-	 
-	    // Utility function to pop top element from the stack
-	    public void pop() // remove at the beginning
-	    {
-	        // check for stack underflow
-	        if (top == null) {
-	            System.out.print("\nStack Underflow");
-	            return;
-	        }
-	 
-	        // update the top pointer to point to the next node
-	        top = (top).link;
-	    }
-	 
-	    public void display()
-	    {
-	        // check for stack underflow
-	        if (top == null) {
-	            System.out.printf("\nStack Underflow");
-	            exit(1);
-	        }
-	        else {
-	            Node temp = top;
-	            while (temp != null) {
-	 
-	                // print node data
-	                System.out.print(temp.data);
-	 
-	                // assign temp link to temp
-	                temp = temp.link;
-	                if(temp != null)
-	                    System.out.print(" -> ");
-	            }
-	        }
-	    }
-	
+        // Check if stack (heap) is full to prevent overflow
+        if (temp == null) {
+            System.out.print("\nHeap Overflow");
+            return;
+        }
+
+        // Initialize data into temp data field
+        temp.data = x;
+
+        // Link the new node to the current top
+        temp.link = top;
+
+        // Update top reference to the new node
+        top = temp;
+    }
+ 
+    // Method to check if the stack is empty
+    public boolean isEmpty() { 
+        return top == null; 
+    }
+ 
+    // Method to return the top element in the stack
+    public int peek() {
+        // Check if stack is not empty
+        if (!isEmpty()) {
+            return top.data; // Return top data
+        } else {
+            System.out.println("Stack is empty");
+            return -1; // Return -1 if stack is empty
+        }
+    }
+ 
+    // Method to pop the top element from the stack
+    public void pop() {
+        // Check for stack underflow
+        if (top == null) {
+            System.out.print("\nStack Under_flow");
+            return;
+        }
+
+        // Update top to the next node
+        top = top.link;
+    }
+ 
+    // Method to display the elements of the stack
+    public void display() {
+        // Check for stack underflow
+        if (top == null) {
+            System.out.printf("\nStack Under_flow");
+            exit(1); // Exit if the stack is empty
+        } else {
+            Node temp = top;
+            while (temp != null) {
+                // Print node data
+                System.out.print(temp.data);
+
+                // Move to the next node
+                temp = temp.link;
+                if (temp != null)
+                    System.out.print(" -> ");
+            }
+        }
+    }
 }
