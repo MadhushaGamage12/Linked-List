@@ -42,19 +42,19 @@ public class SinglyLinkedList {
             System.out.print(current.data + " "); // Print the data of each node
             current = current.next; // Move to the next node
         }
-        System.out.println(); // Print a newline at the end
+        System.out.println(); 
     }
 
     // Main method to test the singly linked list
     public static void main(String[] args) {
         SinglyLinkedList list = new SinglyLinkedList(); // Create a new singly linked list
         list.insert(108); // Insert 108 into the list
-        list.insert(92); // Insert 92 into the list
-        list.insert(53); // Insert 53 into the list
-        list.insert(77); // Insert 77 into the list
-        list.insert(6); // Insert 6 into the list
+        list.insert(92); // Insert 92 
+        list.insert(53); // Insert 53 
+        list.insert(77); // Insert 77 
+        list.insert(6); // Insert 6 
 
-        System.out.println("Singly Linked List:"); // Print a header
+        System.out.println("Singly Linked List:"); 
         list.display(); // Display the list
     }
 }
